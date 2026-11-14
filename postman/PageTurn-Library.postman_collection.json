@@ -1,0 +1,30 @@
+{
+  "info": {"name": "PageTurn Library API", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"},
+  "variable": [{"key": "baseUrl", "value": "http://localhost:3001"}, {"key": "readerId", "value": "1"}, {"key": "bookId", "value": "1"}, {"key": "loanId", "value": "1"}],
+  "item": [
+    {"name": "Readers", "item": [
+      {"name": "Create reader", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"name\": \"Asha Kumar\",\n  \"email\": \"asha@example.com\"\n}"}, "url": "{{baseUrl}}/readers"}},
+      {"name": "Get readers", "request": {"method": "GET", "url": "{{baseUrl}}/readers"}},
+      {"name": "Get reader by ID", "request": {"method": "GET", "url": "{{baseUrl}}/readers/{{readerId}}"}},
+      {"name": "Update reader", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"name\": \"Asha Kumar Updated\",\n  \"email\": \"asha.updated@example.com\"\n}"}, "url": "{{baseUrl}}/readers/{{readerId}}"}},
+      {"name": "Delete reader", "request": {"method": "DELETE", "url": "{{baseUrl}}/readers/{{readerId}}"}}
+    ]},
+    {"name": "Books", "item": [
+      {"name": "Create book", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"name\": \"Harry Potter\",\n  \"genre\": \"Fantasy\"\n}"}, "url": "{{baseUrl}}/books"}},
+      {"name": "Get books", "request": {"method": "GET", "url": "{{baseUrl}}/books"}},
+      {"name": "Search Fantasy books", "request": {"method": "GET", "url": "{{baseUrl}}/books?genre=Fantasy"}},
+      {"name": "Books pagination", "request": {"method": "GET", "url": "{{baseUrl}}/books?page=1&limit=5"}},
+      {"name": "Get book by ID", "request": {"method": "GET", "url": "{{baseUrl}}/books/{{bookId}}"}},
+      {"name": "Update book", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"name\": \"Harry Potter Updated\",\n  \"genre\": \"Adventure\"\n}"}, "url": "{{baseUrl}}/books/{{bookId}}"}},
+      {"name": "Delete book", "request": {"method": "DELETE", "url": "{{baseUrl}}/books/{{bookId}}"}}
+    ]},
+    {"name": "Loans", "item": [
+      {"name": "Create loan", "request": {"method": "POST", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"reader_id\": 1,\n  \"book_id\": 1,\n  \"loan_date\": \"2026-11-14\",\n  \"return_date\": null,\n  \"status\": \"borrowed\"\n}"}, "url": "{{baseUrl}}/loans"}},
+      {"name": "Get loans", "request": {"method": "GET", "url": "{{baseUrl}}/loans"}},
+      {"name": "Get loan by ID", "request": {"method": "GET", "url": "{{baseUrl}}/loans/{{loanId}}"}},
+      {"name": "Update loan", "request": {"method": "PUT", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\n  \"reader_id\": 1,\n  \"book_id\": 1,\n  \"loan_date\": \"2026-11-14\",\n  \"return_date\": \"2026-11-20\",\n  \"status\": \"returned\"\n}"}, "url": "{{baseUrl}}/loans/{{loanId}}"}},
+      {"name": "Loan details JOIN", "request": {"method": "GET", "url": "{{baseUrl}}/loan-details"}},
+      {"name": "Delete loan", "request": {"method": "DELETE", "url": "{{baseUrl}}/loans/{{loanId}}"}}
+    ]}
+  ]
+}
