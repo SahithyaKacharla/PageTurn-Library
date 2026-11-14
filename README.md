@@ -92,6 +92,5 @@ The SQLite database contains three tables:
 - books
 - loans
 
-## Team Project
+
 **Project Name:** PageTurn Library  
-**Assignment:** BDF Group Assignment
